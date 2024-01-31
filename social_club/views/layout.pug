@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        title= title
+        script(src="jquery/jquery.js")
+        script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+        link(rel="stylesheet" href="/stylesheets/layouts.css")
+    body
+        h1= title
+        div#buttons
+            form(action="/" method="GET")
+                button#main главная страница
+
+        block content

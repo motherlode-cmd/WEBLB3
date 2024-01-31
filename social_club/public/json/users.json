@@ -1,0 +1,32 @@
+{
+    "users": [
+        {
+          "id": 1,
+          "name": "Пользователь 1",
+          "birthdate": "1990-01-01",
+          "email": "user1@example.com",
+          "photo": "/images/1.jpg",
+          "role": "Пользователь",
+          "status": "Активный"
+        },
+        {
+          "id": 2,
+          "name": "Пользователь 2",
+          "birthdate": "1992-05-15",
+          "email": "user2@example.com",
+          "photo": "/images/2.jpg",
+          "role": "Пользователь",
+          "status": "Активный"
+        },
+        {
+          "id": 3,
+          "name": "Пользователь 3",
+          "birthdate": "1985-11-30",
+          "email": "user3@example.com",
+          "photo": "/images/3.jpg",
+          "role": "Администратор",
+          "status": "Активный"
+        }
+      ]
+  }
+  

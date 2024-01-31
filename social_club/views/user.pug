@@ -1,0 +1,103 @@
+extends layout
+
+block content
+    link(rel="stylesheet" href="/css/users.css")
+    script(src="/gulp_scripts/users.js")
+    div#info
+      table#artTable
+          th
+              img(src=`${user.photo}`, width="50")
+          th
+          tr
+              th Имя пользователя:
+              th=user.name
+          tr
+              th Дала роэжения:
+              th=user.birthdate
+          tr
+              th Роль:
+              th=user.role
+          tr
+              th Статус:
+              th=user.status
+          tr
+              th Почта:
+              th=user.email
+    div#id02
+        form(name=`users/${user.id}` method="POST")
+            table
+                tr
+                    th Имя пользователя:
+                    th
+                        input(type="text" name="name" value=`${user.name}`)
+                tr
+                    th Роль:
+                    th
+                        input(type="text" name="bthd" value=`${user.birthdate}`)
+                tr
+                    th Роль:
+                    th
+                        input(type="text" name="role" value=`${user.role}`)
+                tr
+                    th Статус:
+                    th
+                        input(type="text" name="status" value=`${user.status}`)
+                tr
+                    th Почта:
+                    th
+                        input(type="text" name="email" value=`${user.email}`)
+                tr
+                    th Путь к фото:
+                    th
+                        input(type="text" name="photo" value=`${user.photo}`)
+            p
+                p
+                    button#red(type="submit") Ок
+                    button#cancel(type="button") Отмена
+                p
+
+    div#id01
+        div
+            header
+                span(onclick="start_config()") &times;
+                h2 Добавить новое сообщение участника
+            div
+                form(action=`/newMessage/${user.id}` method="POST")
+                    table
+                        tr
+                            th Кому:
+                            th
+                                input(name="name" required)
+                        tr
+                            th Сообщение:
+                            th
+                                input(type="text" name="message" required)
+                        tr
+                    p
+                        p
+                            button#red1(type="submit") ok
+                            button#cancel1(type="button") Отмена
+                    p
+
+    div#tables
+        button#hideChat(onclick="hideChats()") Скрыть чаты
+        for item in dialog
+            table#artTable
+                th
+                    img(src=`${item.photo}`, width="50")
+                th
+                    table#info
+                        tr
+                            th
+                                a(href=`/users/${item.id}`) #{item.name}
+                        tr
+                            th
+                                form(action=`/messages/${user.id}/${item.id}` method="GET")
+                                    button(value=item.id) Перейти к диалогу
+        p
+
+    button#edit(onclick="editUser()") Редактировать
+    button#new(value="#{item.id}" onclick="new_message()") Написать сообщение
+    button#chat(onclick="showChats()") Показать чаты
+    form(action=`/friends/${user.id}` method="GET")
+        button#friends Показать Друзей

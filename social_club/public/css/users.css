@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #bc13fe, 0 0 82px #bc13fe, 0 0 92px #bc13fe, 0 0 102px #bc13fe, 0 0 151px #bc13fe;
+}
+h1 {
+  color: #FFF;
+  font-size: 40px;
+  position: relative;
+}
+body {
+  background: url('/images/pig.jpg') center center fixed;
+}
+button {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  background-image: linear-gradient(90deg, #431449, #060d0f, #0f0a36);
+  border-radius: 11px;
+  padding: 12px 20px;
+  position: relative;
+  line-height: 12px;
+  color: #f0a9e4;
+  margin: 1%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0), 0 4px 16px rgba(0, 0, 0), 0 4px 24px rgba(0, 0, 0);
+}
+button:hover {
+  background-color: #191919;
+}
+th,
+td,
+a {
+  color: white;
+  padding: 0.5%;
+  text-align: left;
+  border: 1px solid #360d46;
+}
+tr {
+  transition: background-color 0.3s ease;
+}
+tr:hover {
+  background-color: #b3b3b3;
+}
+#bttnTd {
+  border: none;
+  transition: none;
+}
+table {
+  width: 60%;
+  margin: auto;
+  border-collapse: collapse;
+}
+#id02 {
+  display: none;
+  transition: opacity 0.3s ease;
+}
+#id02.visible {
+  display: block;
+  opacity: 1;
+}
+input {
+  background-color: #360d46;
+  color: white;
+}

@@ -1,0 +1,50 @@
+extends layout
+
+block content
+  link(rel="stylesheet" href="/css/index.css")
+  script(src="/gulp_scripts/index.js")
+  h1 All Users
+  div#id02
+      form(action="/addUser" method="POST")
+          table
+              tr
+                  th Имя пользователя:
+                  th
+                      input(type="text" name="name" value="Default Name")
+              tr
+                  th Роль:
+                  th
+                      input(type="text" name="bthd" value="Default Role")
+              tr
+                  th Роль:
+                  th
+                      input(type="text" name="role" value="Default Role")
+              tr
+                  th Статус:
+                  th
+                      input(type="text" name="status" value="Default Status")
+              tr
+                  th Почта:
+                  th
+                      input(type="text" name="email" value="default@example.com")
+              tr
+                  th Путь к фото:
+                  th
+                      input(type="text" name="photo" value="/images/default.jpg")
+              tr
+                  th
+                      button#red(type="submit") Ок
+                  th
+                      button#cancel(type="button") Отмена
+
+  table#userTable
+    each user in users
+      tr
+        td
+          img(src=`${user.photo}`, alt=`Photo`, width="50")
+        td
+          a(href=`/users/${user.id}`)= user.name
+        td#bttnTd
+          button#deleteUser(onclick=`deleteUsr(${user.id})`) Удалить пользователя
+    button#addUser Добавить пользователя
+                    

@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    script(src="/gulp_scripts/friends.js") 
+    link(rel="stylesheet" href="/css/friends.css")
+    script.
+        var friends = !{JSON.stringify(friends)};
+        var user = !{JSON.stringify(user)};  
+    div#tables
+        for item in friends
+            table#artTable
+                th
+                    img(src=`${item.photo}`, width="50")
+                th
+                    table#info
+                        tr
+                            th
+                                a(href=`/users/${item.id}`) #{item.name}
+                        tr
+                            th
+                                form(action=`/messages/${user.id}/${item.id}` method="GET")
+                                    button(value=item.id) Перейти к диалогу
+                                form(action=`/deleteFriend/${user.id}/${item.id}` method="POST")
+                                    button(value=item.id) Удалить из друзей
+        p
+    button#addFriend(onclick="addFriend()") Добавить друга
+    div#addForm
+          table
+              tr
+                  th Кого:
+                  th
+                      input#newFriend
+              tr
+          p
+              p
+                  button#add(onclick= `sendPost()`) ok
+                  button#cancel(onclick="cancelAdd()" type="button") Отмена
+          p

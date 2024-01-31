@@ -1,0 +1,26 @@
+{
+  "messages": [
+    {
+      "id": 1,
+      "senderId": 1,
+      "recipientId": 2,
+      "text": "Привет, как дела?",
+      "timestamp": "2022-01-01T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "senderId": 2,
+      "recipientId": 1,
+      "text": "Привет! Все хорошо, спасибо!",
+      "timestamp": "2022-01-01T12:05:00Z"
+    },
+    {
+      "id": 3,
+      "senderId": 3,
+      "recipientId": 1,
+      "text": "Здравствуйте! Надеюсь, у вас тоже все отлично.",
+      "timestamp": "2022-01-01T12:10:00Z"
+    }
+  ]
+  }
+  

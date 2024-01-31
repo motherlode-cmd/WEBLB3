@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  link(rel="stylesheet" href="/css/messages.css")
+  script(src="/gulp_scripts/messages.js")
+  h1 Chat
+
+  script.
+    var senderData = !{JSON.stringify(sender)};
+    var recipientData = !{JSON.stringify(recipient)};
+    var messagesData = !{JSON.stringify(messages)};
+
+
+  table#messageTable
+    each message in messages
+      tr
+        td
+          if message.senderId == sender.id
+            img(src=sender.photo, alt=`${sender.name}'s Photo`, width="50")
+          else
+            img(src=recipient.photo, alt=`Photo`, width="50")
+
+        td
+          if message.senderId == sender.id
+            | #{sender.name}
+          else
+            | #{recipient.name}
+
+        td= message.text
+        td= message.timestamp
+
+        td#bttnTd
+          button(type="submit", onclick = `deleteMessage(${message.id})`) Удалить сообщение
+
+  div#newMessage
+    button#writeMessage Написать сообщение
+
+  div#messageForm
+    form(id="sendMessageForm")
+      table
+        tr
+          th Сообщение:
+          td
+            input#messageText(type="text")
+        tr
+          td#bttnTd
+            button#send(type="button", onclick="callAjax()") Отправить
+            button#cancel(type="button") Отмена
+
